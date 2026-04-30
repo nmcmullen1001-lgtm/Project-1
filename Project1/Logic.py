@@ -4,17 +4,17 @@ import csv
 import re
 
 class Logic(QMainWindow, Ui_VotingBooth):
-    def __init__(self):
+    def __init__(self) -> None:
         '''
-        This sets up the UI, and submits the data to def submit(self):
+        Method to set up the UI, and submit the data to def submit(self):
         '''
         super().__init__()
         self.setupUi(self)
         self.Submit.clicked.connect(lambda : self.submit())
 
-    def submit(self: Ui_VotingBooth):
-        '''
-        This makes sure self.Identificatior is a 5-digit ID, if it's not it raises the ValueError (It will
+    def submit(self: Ui_VotingBooth) -> None:
+        """
+         This makes sure self.Identificatior is a 5-digit ID, if it's not it raises the ValueError (It will
         raise the NameError if the ID has been used previously), After it makes sure
         the proper parameters are met it makes sure either radio_john or radio_jane are clicked, if not a SyntaxError
         is raised. Depending on which one was clicked upon submission john_votes or jane_votes increases by one
@@ -27,12 +27,14 @@ class Logic(QMainWindow, Ui_VotingBooth):
         into strings and then self.display will be updated to say
         "John has a score of (john_string) Current votes are (total_string)" and self.Error will be updated to say
         "Jane has a score of (jane_string) Current winner is (winner)". After this is done The ID, individual voted for,
-        Jane total, John total, overall total, and current winner is sent to Votes.csv.
+        Jane total, John total, overall total, and current winner is sent to Votes.csv
 
         :raise ValueError: if the Identifier is not 5-digits
         :raise NameError: If the 5-digit ID has been used previously
         :raise SyntaxError: If neither radio_jane nor radio_john was pressed
-        '''
+
+        """
+
         jane_votes: int = 0
         john_votes: int = 0
         try:
