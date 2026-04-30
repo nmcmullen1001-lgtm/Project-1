@@ -101,6 +101,7 @@ class Logic(QMainWindow, Ui_VotingBooth):
             self.Error.setText(john_text)
             self.Identificator.setText('')
 
+
             if self.buttonGroup.checkedButton() is not None:
                 self.buttonGroup.setExclusive(False)
                 self.buttonGroup.checkedButton().setChecked(False)
